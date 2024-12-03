@@ -5,8 +5,9 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
 SRC_FILE = ft_printf.c\
-		print1.c\
-		print2.c
+		printf_num.c\
+		printf_char.c\
+		printf_hexa.c
 
 OBJ = ${SRC_FILE:.c=.o}
 
@@ -23,7 +24,7 @@ all: ${NAME}
 
 ${NAME}: ${OBJ} ft_printf.h
 		${MAKE} makelib
-		ar -rc ${NAME} ${OBJ}
+		ar -rcs ${NAME} ${OBJ}
 
 makelib:
 		${MAKE} -C ${LIB_DIR}

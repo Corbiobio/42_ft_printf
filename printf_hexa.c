@@ -1,28 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print2.c                                           :+:      :+:    :+:   */
+/*   printf_hexa.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edarnand <edarnand@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 10:26:15 by edarnand          #+#    #+#             */
-/*   Updated: 2024/12/03 09:45:43 by edarnand         ###   ########.fr       */
+/*   Created: 2024/12/03 10:22:17 by edarnand          #+#    #+#             */
+/*   Updated: 2024/12/03 10:33:10 by edarnand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_printf.h"
-
-int	print_char(char c)
-{
-	int	byte;
-
-	byte = write(1, &c, 1);
-	if (byte == 1)
-		return (1);
-	else
-		return (-1);
-}
+#include "libft.h"
 
 static char	ull_to_hexa(unsigned long long i)
 {

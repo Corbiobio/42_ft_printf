@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print1.c                                           :+:      :+:    :+:   */
+/*   printf_num.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edarnand <edarnand@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:52:03 by edarnand          #+#    #+#             */
-/*   Updated: 2024/12/03 09:56:33 by edarnand         ###   ########.fr       */
+/*   Updated: 2024/12/03 10:25:41 by edarnand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_printf.h"
+#include "libft.h"
 
 static void	putnbr(int n, int *count)
 {
@@ -42,29 +42,6 @@ static void	putnbr(int n, int *count)
 	}
 }
 
-int	print_str(char *s)
-{
-	int	len;
-	int	byte;
-
-	if (s == NULL)
-		return (print_str("(null)"));
-	len = ft_strlen(s);
-	byte = write(1, s, len);
-	if (byte != len)
-		return (-1);
-	return (len);
-}
-
-int	print_int(int i)
-{
-	int	count;
-
-	count = 1;
-	putnbr(i, &count);
-	return (count);
-}
-
 static void	putnbr_un(unsigned int n, int *count)
 {
 	int	byte;
@@ -80,6 +57,15 @@ static void	putnbr_un(unsigned int n, int *count)
 		*count = -1;
 		return ;
 	}
+}
+
+int	print_int(int i)
+{
+	int	count;
+
+	count = 1;
+	putnbr(i, &count);
+	return (count);
 }
 
 int	print_undec(unsigned int i)
