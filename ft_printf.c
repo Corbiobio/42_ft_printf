@@ -6,7 +6,7 @@
 /*   By: edarnand <edarnand@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 15:51:37 by edarnand          #+#    #+#             */
-/*   Updated: 2024/12/02 17:57:07 by edarnand         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:56:35 by edarnand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	ft_printf(const char *s, ...)
 			s++;
 			byte = print_param(*s, arg);
 		}
+		else if (*s == '%')
+			byte = -1;
 		else
 			byte = print_char(*s);
 		if (byte == -1)
@@ -51,13 +53,13 @@ int	print_param(char c, va_list arg)
 	if (c == 'p')
 		return (print_void(va_arg(arg, void *)));
 	if (c == 'd' || c == 'i')
-		return (print_int(va_arg(arg, int)));
+		return (print_num((long)va_arg(arg, int)));
 	if (c == 'u')
-		return (print_undec(va_arg(arg, unsigned int)));
+		return (print_num((long)va_arg(arg, unsigned int)));
 	if (c == 'x' || c == 'X')
 	{
 		i = 1;
-		print_hexa(va_arg(arg, int), 'X' - c + 1, &i);
+		print_hexa(va_arg(arg, unsigned int), 'X' - c + 1, &i);
 		return (i);
 	}
 	if (c == '%')
