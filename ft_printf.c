@@ -6,7 +6,7 @@
 /*   By: edarnand <edarnand@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 15:51:37 by edarnand          #+#    #+#             */
-/*   Updated: 2024/12/20 15:56:35 by edarnand         ###   ########.fr       */
+/*   Updated: 2024/12/23 17:06:38 by edarnand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_printf(const char *s, ...)
 	total = 0;
 	byte = 0;
 	va_start(arg, s);
-	while (*s != '\0')
+	while (*s != '\0' && s != NULL)
 	{
 		if (*s == '%' && *(s + 1) != '\0')
 		{
